@@ -1,18 +1,49 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="meetings">
+    <Meeting v-for="meeting in meetings" :key="meeting.id" :meeting="meeting"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src a
-import HelloWorld from "@/components/HelloWorld.vue";
+import Meeting from "@/components/Meeting.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    Meeting,
+  },
+  data: function () {
+    return {
+      meetings: [
+        {
+          id: 1,
+          title: "BoardGames for everyone",
+          description: "Learn how to play various boardgames",
+          date: "25 January 2022",
+        },
+        {
+          id: 2,
+          title: "Become a ninja in vue ",
+          description: "Master the framwork vue.js",
+          date: "12 February 2022",
+        },
+        {
+          id: 3,
+          title: "Box like a champion",
+          description: "Learn the basics and more of boxing",
+          date: "2 June 2022",
+        },
+      ],
+    };
   },
 };
 </script>
+
+<style scoped>
+.meetings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>
