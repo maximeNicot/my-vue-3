@@ -4,6 +4,7 @@
     <p>@ {{ meeting.date }}</p>
     <p>{{ meeting.description }}</p>
   </div>
+
 </template>
 
 <script>

@@ -1,6 +1,11 @@
 <template>
   <div class="meetings">
     <Meeting v-for="meeting in meetings" :key="meeting.id" :meeting="meeting" />
+    <router-link to="/meeting">
+      <button>
+        Create meeting
+      </button>
+    </router-link>
   </div>
 </template>
 
@@ -8,6 +13,7 @@
 // @ is an alias to /src a
 import Meeting from "@/components/Meeting.vue";
 import MettingService from "../services/MettingService";
+
 
 export default {
   name: "MeetingList",

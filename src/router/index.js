@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import MeetingList from "../views/MeetingList.vue";
 import MeetingDetails from "../views/MeetingDetails.vue";
 import About from "../views/About.vue";
+import MeetingCreate from "../views/MeetingCreate";
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
     name: "MeetingDetails",
     props: true,
     component: MeetingDetails,
+  },
+  {
+    path: "/meeting",
+    name: "MeetingCreate",
+    component: MeetingCreate,
   },
   {
     path: "/about",
