@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:3004/",
+  baseURL: "http://localhost:3005/",
   withCredentials: false,
   headers: {
     Accept: "application/json",
@@ -16,4 +16,7 @@ export default {
   getMeeting(id) {
     return apiClient.get("/meetings/" + id);
   },
+  postMeeting(meeting){
+    return apiClient.post("/meetings", meeting);
+  }
 };
