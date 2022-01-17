@@ -10,7 +10,7 @@
 
 <script>
 import MettingService from "../services/MettingService";
-import { useToast } from 'vue-toastification'
+import { useToast } from "vue-toastification";
 import About from "../views/About";
 const toast = useToast();
 export default {

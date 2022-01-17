@@ -18,7 +18,7 @@ export default createStore({
       MettingService.postMeeting(meeting)
         .then(() => {
           commit("ADD_EVENT", meeting);
-          toast.success("incremented!")
+          toast.success("New meeting !")
         })
         .catch((error) => {
           throw(error);
