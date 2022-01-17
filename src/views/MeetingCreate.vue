@@ -8,8 +8,7 @@
           v-for="option in categories"
           :value="option"
           :key="option"
-          :selected="option === meeting.category"
-        >
+          :selected="option === meeting.category">
           {{ option }}
         </option>
       </select>
@@ -26,6 +25,8 @@
 </template>
 <script>
 import BaseInput from "../components/BaseInput";
+import NProgress from "nprogress";
+import { uuid } from "vue-uuid";
 export default {
   components: { BaseInput },
   data() {
@@ -34,7 +35,7 @@ export default {
         description: "",
         title: "",
         category: "",
-        id: "",
+        id: uuid.v4(),
         date: "",
         organizer: "", //sync to vuex state
       },
@@ -43,6 +44,7 @@ export default {
   },
   methods: {
     onSubmit() {
+      NProgress.start();
       this.meeting.organizer = this.$store.state.user;
       this.$store
         .dispatch("createMeeting", this.meeting)
@@ -50,9 +52,9 @@ export default {
           this.$router.push({ name: "MeetingList" });
         })
         .catch((error) => {
-          console.log("error depuis le component")
           this.$router.push({ name: "DisplayError", params: { error: error } });
         });
+      NProgress.done();
     },
   },
 };

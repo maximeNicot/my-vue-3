@@ -1,6 +1,8 @@
 import { createStore } from "vuex";
+import { useToast } from "vue-toastification";
 import MettingService from "../services/MettingService";
 
+const toast = useToast()
 export default createStore({
   state: {
     user: "Gome Jabar",
@@ -16,9 +18,9 @@ export default createStore({
       MettingService.postMeeting(meeting)
         .then(() => {
           commit("ADD_EVENT", meeting);
+          toast.success("incremented!")
         })
         .catch((error) => {
-          console.log('error thrown')
           throw(error);
         });
     },
